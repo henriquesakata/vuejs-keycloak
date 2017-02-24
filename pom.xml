@@ -14,27 +14,26 @@
 		<project.build.sourceEncoding>UTF-8</project.build.sourceEncoding>
 		<project.reporting.outputEncoding>UTF-8</project.reporting.outputEncoding>
 		<!-- Vert.x -->
-		<main.verticle>hs.research.example.MainVerticle</main.verticle>
+		<vertx.verticle>hs.research.example.MainVerticle</vertx.verticle>
 		<!-- Version -->
 		<junit.version>4.12</junit.version>
 		<vertx.version>3.3.3</vertx.version>
+		<fabric8.vertx.plugin.version>1.0.4</fabric8.vertx.plugin.version>
 	</properties>
 
+	<dependencyManagement>
+		<dependencies>
+			<dependency>
+				<groupId>io.vertx</groupId>
+				<artifactId>vertx-dependencies</artifactId>
+				<version>${vertx.version}</version>
+				<type>pom</type>
+				<scope>import</scope>
+			</dependency>
+		</dependencies>
+	</dependencyManagement>
+
 	<dependencies>
-		<!-- Commons -->
-		<dependency>
-			<groupId>org.apache.commons</groupId>
-			<artifactId>commons-lang3</artifactId>
-			<version>3.5</version>
-			<scope>provided</scope>
-		</dependency>
-		<!-- Drools -->
-		<dependency>
-			<groupId>org.drools</groupId>
-			<artifactId>drools-compiler</artifactId>
-			<version>6.5.0.Final</version>
-			<scope>provided</scope>
-		</dependency>
 		<!-- sfl4j -->
 		<dependency>
 			<groupId>org.slf4j</groupId>
@@ -46,32 +45,26 @@
 		<dependency>
 			<groupId>io.vertx</groupId>
 			<artifactId>vertx-core</artifactId>
-			<version>${vertx.version}</version>
 		</dependency>
 		<dependency>
 			<groupId>io.vertx</groupId>
 			<artifactId>vertx-web</artifactId>
-			<version>${vertx.version}</version>
 		</dependency>
 		<dependency>
 			<groupId>io.vertx</groupId>
 			<artifactId>vertx-auth-jwt</artifactId>
-			<version>${vertx.version}</version>
 		</dependency>
 		<dependency>
 			<groupId>io.vertx</groupId>
 			<artifactId>vertx-shell</artifactId>
-			<version>${vertx.version}</version>
 		</dependency>
 		<dependency>
 			<groupId>io.vertx</groupId>
 			<artifactId>vertx-mongo-client</artifactId>
-			<version>${vertx.version}</version>
 		</dependency>
 		<dependency>
 			<groupId>io.vertx</groupId>
 			<artifactId>vertx-unit</artifactId>
-			<version>${vertx.version}</version>
 			<scope>test</scope>
 		</dependency>
 		<!-- JUnit -->
@@ -95,76 +88,20 @@
 				</configuration>
 			</plugin>
 			<plugin>
-				<groupId>org.apache.maven.plugins</groupId>
-				<artifactId>maven-surefire-plugin</artifactId>
-				<version>2.19.1</version>
-				<configuration>
-					<excludes>
-						<exclude>**/Abstract*.java</exclude>
-					</excludes>
-				</configuration>
-			</plugin>
-			<plugin>
-				<groupId>org.apache.maven.plugins</groupId>
-				<artifactId>maven-shade-plugin</artifactId>
-				<version>2.4.3</version>
+				<groupId>io.fabric8</groupId>
+				<artifactId>vertx-maven-plugin</artifactId>
+				<version>${fabric8.vertx.plugin.version}</version>
 				<executions>
 					<execution>
-						<phase>package</phase>
+						<id>vmp-init-package</id>
 						<goals>
-							<goal>shade</goal>
+							<goal>initialize</goal>
+							<goal>package</goal>
 						</goals>
-						<configuration>
-							<transformers>
-								<transformer
-									implementation="org.apache.maven.plugins.shade.resource.ManifestResourceTransformer">
-									<manifestEntries>
-										<Main-Class>io.vertx.core.Launcher</Main-Class>
-										<Main-Verticle>${main.verticle}</Main-Verticle>
-									</manifestEntries>
-								</transformer>
-								<transformer
-									implementation="org.apache.maven.plugins.shade.resource.AppendingTransformer">
-									<resource>META-INF/services/io.vertx.core.spi.VerticleFactory</resource>
-								</transformer>
-							</transformers>
-							<artifactSet>
-							</artifactSet>
-							<outputFile>${project.build.directory}/${project.artifactId}-${project.version}-fat.jar</outputFile>
-						</configuration>
 					</execution>
 				</executions>
-			</plugin>
-			<plugin>
-				<groupId>org.codehaus.mojo</groupId>
-				<artifactId>exec-maven-plugin</artifactId>
-				<version>1.5.0</version>
-				<executions>
-					<execution>
-						<!-- run the application using the fat jar -->
-						<id>run-app</id>
-						<goals>
-							<goal>exec</goal>
-						</goals>
-						<configuration>
-							<executable>java</executable>
-							<configuration>
-								<mainClass>io.vertx.core.Launcher</mainClass>
-								<arguments>
-									<argument>run</argument>
-									<argument>${main.verticle}</argument>
-								</arguments>
-							</configuration>
-						</configuration>
-					</execution>
-				</executions>
-			</plugin>
-			<plugin>
-				<groupId>com.versioneye</groupId>
-				<artifactId>versioneye-maven-plugin</artifactId>
-				<version>3.11.1</version>
 				<configuration>
-					<apiKey>1e2f0eda42d69485087a</apiKey>
+					<redeploy>true</redeploy>
 				</configuration>
 			</plugin>
 		</plugins>
