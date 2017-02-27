@@ -4,10 +4,17 @@ import Vue from 'vue'
 import App from './App'
 import router from './router'
 
+import keycloak from './components/security/keycloak'
+
 /* eslint-disable no-new */
 new Vue({
   el: '#app',
   router,
   template: '<App/>',
-  components: { App }
+  beforeCreate () {
+    keycloak.init()
+  },
+  components: {
+    App
+  }
 })
