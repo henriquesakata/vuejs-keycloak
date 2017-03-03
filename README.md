@@ -1,5 +1,11 @@
 # vuejs-vertx-keycloak-example
 
+## Pré Requisitos
+
+- Java 8
+- NodeJS
+- Docker
+
 ## Setup
 
 ### Install Keycloak
