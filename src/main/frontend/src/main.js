@@ -5,17 +5,12 @@ import App from './App'
 import router from './router'
 import store from './store'
 
-import security from './components/security'
-
 /* eslint-disable no-new */
 new Vue({
   el: '#app',
   router,
   store,
   template: '<App/>',
-  beforeCreate () {
-    security.init()
-  },
   components: {
     App
   }

@@ -3,7 +3,9 @@ import actions from './actions'
 import getters from './getters'
 
 const state = {
-  auth: {}
+  auth: {
+    authenticated: false
+  }
 }
 
 export default {

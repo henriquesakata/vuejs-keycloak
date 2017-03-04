@@ -9,6 +9,7 @@
         </div>
         <ul class="nav navbar-nav">
           <router-link to="/" tag="li" active-class="active" exact><a>Home</a></router-link>
+          <router-link to="/request" tag="li" active-class="active" exact><a>Request</a></router-link>
         </ul>
         <ul class="nav navbar-nav navbar-right">
           <li><a href="#"><span class="glyphicon glyphicon-user"></span> {{ auth.idTokenParsed.name }}</a></li>
