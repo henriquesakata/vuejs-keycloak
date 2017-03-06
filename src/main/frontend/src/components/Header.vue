@@ -7,13 +7,13 @@
             <img alt="Brand" src="../assets/rockt_color.png">
           </a>
         </div>
-        <ul class="nav navbar-nav">
+        <ul class="nav navbar-nav" v-if="auth.authenticated">
           <router-link to="/" tag="li" active-class="active" exact><a>Home</a></router-link>
           <router-link to="/request" tag="li" active-class="active" exact><a>Request</a></router-link>
         </ul>
         <ul class="nav navbar-nav navbar-right">
-          <li><a href="#"><span class="glyphicon glyphicon-user"></span> {{ auth.idTokenParsed.name }}</a></li>
-          <li><a @click="logout" onmouseover="" style="cursor: pointer;"><span class="glyphicon glyphicon-log-out"></span> Logout</a></li>
+          <li v-if="auth.authenticated"><a href="#"><span class="glyphicon glyphicon-user"></span> {{ auth.idTokenParsed.name }}</a></li>
+          <li v-if="auth.authenticated"><a @click="logout" onmouseover="" style="cursor: pointer;"><span class="glyphicon glyphicon-log-out"></span> Logout</a></li>
         </ul>
       </div>
     </nav>
@@ -26,6 +26,7 @@ import * as securityTypes from '../store/modules/security/types'
 import security from './security'
 
 export default {
+  name: 'header',
   computed: {
     ...mapGetters({
       auth: securityTypes.SECURITY_AUTH

@@ -1,7 +1,0 @@
-{
-  "realm": "app-example",
-  "auth-server-url": "http://localhost:9080/auth",
-  "ssl-required": "external",
-  "resource": "vuejs-vertx-keycloak-example",
-  "public-client": true
-}

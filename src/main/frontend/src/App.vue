@@ -1,6 +1,8 @@
 <template>
   <div id="app" class="container">
-    <app-header></app-header>
+    <div class="row">
+      <app-header></app-header>
+    </div>
     <div class="row">
       <div class="cols-xs-12">
         <router-view></router-view>
