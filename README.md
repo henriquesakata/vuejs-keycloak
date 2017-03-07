@@ -1,6 +1,6 @@
-# vuejs-vertx-keycloak-example
+# vuejs-keycloak
 
-## Pré Requisitos
+## Required Technologies
 
 - Java 8
 - NodeJS
@@ -11,6 +11,3 @@
 ### Install Keycloak
 
 docker run -e KEYCLOAK_USER=admin -e KEYCLOAK_PASSWORD=admin -p 9080:8080 jboss/keycloak
-
-
-npm install keycloak-js --save

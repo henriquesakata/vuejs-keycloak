@@ -1,7 +1,7 @@
 {
-  "realm": "app-example",
+  "realm": "rockt-example",
   "auth-server-url": "http://localhost:9080/auth",
   "ssl-required": "external",
-  "resource": "vuejs-vertx-keycloak-example",
+  "resource": "vuejs-keycloak",
   "public-client": true
 }

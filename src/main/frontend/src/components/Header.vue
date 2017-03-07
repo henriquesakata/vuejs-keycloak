@@ -10,6 +10,8 @@
         <ul class="nav navbar-nav" v-if="auth.authenticated">
           <router-link to="/" tag="li" active-class="active" exact><a>Home</a></router-link>
           <router-link to="/request" tag="li" active-class="active" exact><a>Request</a></router-link>
+          <router-link to="/user" tag="li" active-class="active" exact v-if="hasRole('user')"><a>User</a></router-link>
+          <router-link to="/admin" tag="li" active-class="active" exact v-if="hasRole('admin')"><a>Admin</a></router-link>
         </ul>
         <ul class="nav navbar-nav navbar-right">
           <li v-if="auth.authenticated"><a href="#"><span class="glyphicon glyphicon-user"></span> {{ auth.idTokenParsed.name }}</a></li>
@@ -33,6 +35,9 @@ export default {
     })
   },
   methods: {
+    hasRole (role) {
+      return security.roles(role)
+    },
     logout () {
       security.logout()
     }

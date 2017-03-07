@@ -1,5 +1,5 @@
 {
-    "realm": "app-example",
+    "realm": "rockt-example",
     "enabled": true,
     "sslRequired": "external",
     "registrationAllowed": true,
@@ -10,14 +10,29 @@
         {
             "username" : "user",
             "enabled": true,
-            "email" : "sample-user@app-example",
+            "email" : "sample-user@rockt.com.br",
             "firstName": "Sample",
             "lastName": "User",
             "credentials" : [
                 { "type" : "password",
-                  "value" : "password" }
+                  "value" : "rockt" }
             ],
             "realmRoles": [ "user" ],
+            "clientRoles": {
+                "account": ["view-profile", "manage-account"]
+            }
+        },
+        {
+            "username" : "admin",
+            "enabled": true,
+            "email" : "sample-admin@rockt.com.br",
+            "firstName": "Sample",
+            "lastName": "Admin",
+            "credentials" : [
+                { "type" : "password",
+                  "value" : "rockt" }
+            ],
+            "realmRoles": [ "admin" ],
             "clientRoles": {
                 "account": ["view-profile", "manage-account"]
             }
@@ -37,13 +52,13 @@
     },
     "scopeMappings": [
         {
-            "client": "vuejs-vertx-keycloak-example",
+            "client": "vuejs-keycloak",
             "roles": ["user"]
         }
     ],
     "clients": [
         {
-            "clientId": "vuejs-vertx-keycloak-example",
+            "clientId": "vuejs-keycloak",
             "enabled": true,
             "publicClient": true,
             "baseUrl": "http://localhost:3000/",
@@ -58,7 +73,7 @@
     "clientScopeMappings": {
         "account": [
             {
-                "client": "vuejs-vertx-keycloak-example",
+                "client": "vuejs-keycloak",
                 "roles": ["view-profile"]
             }
         ]

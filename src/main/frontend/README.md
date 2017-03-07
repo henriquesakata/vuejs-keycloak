@@ -1,4 +1,4 @@
-# vuejs-vertx-keycloak-example
+# vuejs-keycloak
 
 > A Vue.js project
 
