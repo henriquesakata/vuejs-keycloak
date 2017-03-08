@@ -1,7 +1,7 @@
 <?xml version="1.0" encoding="UTF-8" standalone="no"?>
 <launchConfiguration type="org.eclipse.jdt.launching.localJavaApplication">
 <listAttribute key="org.eclipse.debug.core.MAPPED_RESOURCE_PATHS">
-<listEntry value="/vuejs-vertx-keycloak-example"/>
+<listEntry value="/vuejs-keycloak"/>
 </listAttribute>
 <listAttribute key="org.eclipse.debug.core.MAPPED_RESOURCE_TYPES">
 <listEntry value="4"/>
@@ -13,6 +13,6 @@
 <stringAttribute key="org.eclipse.jdt.launching.CLASSPATH_PROVIDER" value="org.eclipse.m2e.launchconfig.classpathProvider"/>
 <stringAttribute key="org.eclipse.jdt.launching.MAIN_TYPE" value="io.vertx.core.Launcher"/>
 <stringAttribute key="org.eclipse.jdt.launching.PROGRAM_ARGUMENTS" value="run hs.research.example.MainVerticle --redeploy=&quot;src/**/*.java&quot; --launcher-class=io.vertx.core.Launcher -Dvertx.disableFileCaching=true -Dvertx.development=true"/>
-<stringAttribute key="org.eclipse.jdt.launching.PROJECT_ATTR" value="vuejs-vertx-keycloak-example"/>
+<stringAttribute key="org.eclipse.jdt.launching.PROJECT_ATTR" value="vuejs-keycloak"/>
 <stringAttribute key="org.eclipse.jdt.launching.SOURCE_PATH_PROVIDER" value="org.eclipse.m2e.launchconfig.sourcepathProvider"/>
 </launchConfiguration>

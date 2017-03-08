@@ -3,10 +3,10 @@
 
 	<modelVersion>4.0.0</modelVersion>
 	<groupId>hs.research</groupId>
-	<artifactId>vuejs-vertx-keycloak-example</artifactId>
+	<artifactId>vuejs-keycloak</artifactId>
 	<version>1.0-SNAPSHOT</version>
 	<packaging>jar</packaging>
-	<name>Vue.js - Vert.x - Keycloak - Example</name>
+	<name>Vue.js - Keycloak</name>
 
 	<properties>
 		<!-- Configuration -->

@@ -63,10 +63,12 @@
             "publicClient": true,
             "baseUrl": "http://localhost:3000/",
             "redirectUris": [
-                "http://localhost:3000/*"
+                "http://localhost:3000/*",
+                "http://localhost:8080/*"
             ],
             "webOrigins": [
-                "http://localhost:3000"
+                "http://localhost:3000",
+                "http://localhost:8080"
             ]
         }
     ],

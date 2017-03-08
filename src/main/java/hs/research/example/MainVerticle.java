@@ -7,6 +7,7 @@ import io.vertx.core.json.JsonObject;
 import io.vertx.ext.auth.jwt.JWTAuth;
 import io.vertx.ext.web.Router;
 import io.vertx.ext.web.handler.JWTAuthHandler;
+import io.vertx.ext.web.handler.StaticHandler;
 
 public class MainVerticle extends AbstractVerticle {
 
@@ -25,6 +26,7 @@ public class MainVerticle extends AbstractVerticle {
         // }
         // });
         configureSecurity(router);
+        router.route("/*").handler(StaticHandler.create());
         router.mountSubRouter("/api/services", new RestServices(vertx).getRouter());
         configureAndStartServer(router);
     }
