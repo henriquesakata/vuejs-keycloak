@@ -15,8 +15,8 @@ public class MainVerticle extends AbstractVerticle {
     public void start() throws Exception {
         final Router router = Router.router(vertx);
         configureSecurity(router);
-        router.route("/*").handler(StaticHandler.create());
         router.mountSubRouter("/api/services", new RestServices(vertx).getRouter());
+        router.route("/*").handler(StaticHandler.create());
         configureAndStartServer(router);
     }
 

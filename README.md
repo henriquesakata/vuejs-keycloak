@@ -28,3 +28,10 @@ Create new Realm and upload rockt-realm.json, then click on Create button.
 ```sh
 mvn clean install -P frontend
 ```
+
+## License
+
+[MIT](http://opensource.org/licenses/MIT)
+
+Copyright (c) 2017-present, Henrique Sakata
+
